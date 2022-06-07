@@ -17,19 +17,16 @@
 #include <cstring>
 
 #include <pwn/utils/Dye.hpp>
+#include <pwn/tunnel/primitives/Pipe.hpp>
 
-class ClientSocket {
+class ClientSocket : public Pipe {
     private:
-        int fd;
 
     public:
         ClientSocket();
         ~ClientSocket();
 
         void Connect(std::string addr, unsigned short port);
-
-        void Send(std::vector<unsigned char> data);
-        std::vector<unsigned char> Recv();
 
 };
 
